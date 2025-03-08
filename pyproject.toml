@@ -1,0 +1,23 @@
+[project]
+name = "langchain-learning"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Aniruddha150902",email = "aniruddhajaganatha@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "langchain (>=0.3.20,<0.4.0)",
+    "langchain-ollama (>=0.2.3,<0.3.0)",
+    "firestore (>=0.0.8,<0.0.9)",
+    "langchain-google-firestore (>=0.5.0,<0.6.0)"
+]
+
+[tool.poetry]
+packages = [{include = "langchain_learning", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
