@@ -76,7 +76,7 @@ def query_vector_store(store_name, query):
         )
         retriever = db.as_retriever(
             search_type="similarity_score_threshold",
-            search_kargs={"k": 1, "score_threshold": 0.1},
+            search_kwargs={"k": 1, "score_threshold": 0.4},
         )
         relevant_docs = retriever.invoke(query)
         print(f"\n--- Relevant Documents for {store_name} ---")
