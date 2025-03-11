@@ -58,7 +58,7 @@ print("Embedding demonstrations for Ollama and Hugging Face completed.")
 
 def query_vector_store(embedding_model, store_name, query):
     persistent_directory = os.path.join(DB_DIR, store_name)
-    if not os.path.exists(persistent_directory):
+    if os.path.exists(persistent_directory):
         print(f"\n--- Querying the Vector Store {store_name} ---")
         db = Chroma(
             embedding_function=embedding_model, persist_directory=persistent_directory

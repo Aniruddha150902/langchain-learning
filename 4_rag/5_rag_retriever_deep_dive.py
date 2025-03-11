@@ -17,7 +17,7 @@ embedding_model = HuggingFaceEmbeddings(
 
 
 def query_vector_store(embedding_model, store_name, query, search_type, search_kwargs):
-    if not os.path.exists(PERSISTENT_DIRECTORY):
+    if os.path.exists(PERSISTENT_DIRECTORY):
         print(f"\n--- Querying the Vector Store {store_name} ---")
         db = Chroma(
             embedding_function=embedding_model, persist_directory=PERSISTENT_DIRECTORY
@@ -57,8 +57,8 @@ query_vector_store(
     embedding_model,
     "chroma_db_with_metadata",
     query,
-    "similarity_search_threshold",
-    {"k": 3, "search_threshold": 0.4},
+    "similarity_score_threshold",
+    {"k": 3, "score_threshold": 0.4},
 )
 
 print("Querying demonstrations with different search types completed.")
